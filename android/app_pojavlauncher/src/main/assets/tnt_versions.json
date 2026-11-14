@@ -1,0 +1,247 @@
+{
+  "1.0": {
+    "title_ru": "Minecraft 1.0 — полный релиз", "title_en": "Minecraft 1.0 — full release",
+    "ru": "Первая полная версия игры (ноябрь 2011), завершившая бету.\n\n• Измерение Край и Эндер-дракон — первый финальный босс\n• Зачаровывание и стол зачарований\n• Зельеварение, варочная стойка и котёл\n• Грибные коровы, снежные големы, ифриты и магмовые кубы\n• Режим «Хардкор»\n• Титры после победы над драконом",
+    "en": "The first full version of the game (November 2011), ending the beta.\n\n• The End dimension and the Ender Dragon, the first final boss\n• Enchanting and the enchanting table\n• Brewing, the brewing stand and the cauldron\n• Mooshrooms, snow golems, blazes and magma cubes\n• Hardcore mode\n• End credits after defeating the dragon"
+  },
+  "1.1": {
+    "title_ru": "Minecraft 1.1", "title_en": "Minecraft 1.1",
+    "ru": "Небольшое обновление начала 2012 года.\n\n• Яйца призыва в творческом режиме\n• Тип мира «Суперплоский»\n• Выбор языка интерфейса и первые переводы\n• Пляжи и улучшенная генерация побережий\n• Зачарованные луки",
+    "en": "A small early-2012 update.\n\n• Spawn eggs in Creative mode\n• The Superflat world type\n• Interface language selection and the first translations\n• Beaches and better coastline generation\n• Bow enchantments"
+  },
+  "1.2": {
+    "title_ru": "Minecraft 1.2", "title_en": "Minecraft 1.2",
+    "ru": "Обновление весны 2012 года.\n\n• Биом «Джунгли» и оцелоты (их можно приручить — получится кошка)\n• Железные големы, охраняющие деревни\n• Новый формат мира Anvil: высота мира выросла до 256 блоков\n• Лампа из красного камня\n• Каменные кирпичи с резьбой и другие декоративные блоки",
+    "en": "A spring 2012 update.\n\n• The Jungle biome and ocelots (tame one to get a cat)\n• Iron golems guarding villages\n• The new Anvil world format: world height raised to 256 blocks\n• The redstone lamp\n• Chiseled stone bricks and other decorative blocks"
+  },
+  "1.3": {
+    "title_ru": "Minecraft 1.3", "title_en": "Minecraft 1.3",
+    "ru": "Обновление лета 2012 года.\n\n• Одиночная игра теперь работает через встроенный сервер (как сетевая)\n• Торговля с жителями и изумруды\n• Сундук Края, растяжка (tripwire), какао-бобы\n• Книга с пером — можно писать свои книги\n• Режим «Приключение»\n• Храмы в пустыне и джунглях",
+    "en": "A summer 2012 update.\n\n• Singleplayer now runs on an integrated server, just like multiplayer\n• Villager trading and emeralds\n• Ender chests, tripwire and cocoa beans\n• Book and quill — write your own books\n• Adventure mode\n• Desert and jungle temples"
+  },
+  "1.4": {
+    "title_ru": "Minecraft 1.4 — «Страшное обновление»", "title_en": "Minecraft 1.4 — Pretty Scary Update",
+    "ru": "Осеннее обновление 2012 года.\n\n• Иссушитель — второй босс, и маяк, который из него получают\n• Ведьмы, летучие мыши, зомби-жители и их лечение\n• Командный блок\n• Рамки для предметов, цветочные горшки, наковальня\n• Морковь, картофель и тыквенный пирог\n• Головы мобов",
+    "en": "The autumn 2012 update.\n\n• The Wither, a second boss, and the beacon you craft from it\n• Witches, bats, zombie villagers and curing them\n• The command block\n• Item frames, flower pots and the anvil\n• Carrots, potatoes and pumpkin pie\n• Mob heads"
+  },
+  "1.5": {
+    "title_ru": "Minecraft 1.5 — Redstone Update", "title_en": "Minecraft 1.5 — Redstone Update",
+    "ru": "Обновление для любителей механизмов (март 2013).\n\n• Воронка, компаратор и датчик дневного света\n• Выбрасыватель, сундук-ловушка, взвешенные нажимные плиты\n• Активирующие рельсы и блок красного камня\n• Кварц Нижнего мира и кварцевые блоки\n• Текстуры теперь хранятся отдельными файлами — проще делать свои",
+    "en": "An update for contraption builders (March 2013).\n\n• The hopper, the comparator and the daylight sensor\n• The dropper, the trapped chest and weighted pressure plates\n• Activator rails and the block of redstone\n• Nether quartz and quartz blocks\n• Textures are now stored as separate files, making packs easier to make"
+  },
+  "1.6": {
+    "title_ru": "Minecraft 1.6 — Horse Update", "title_en": "Minecraft 1.6 — Horse Update",
+    "ru": "Обновление лета 2013 года.\n\n• Лошади, ослы и мулы — с сёдлами и бронёй\n• Поводки и тюки сена\n• Ковры и обожжённая глина (терракота) разных цветов\n• Наборы ресурсов вместо наборов текстур\n• Новый официальный лаунчер",
+    "en": "The summer 2013 update.\n\n• Horses, donkeys and mules, with saddles and armor\n• Leads and hay bales\n• Carpets and stained (hardened) clay\n• Resource packs replace texture packs\n• A new official launcher"
+  },
+  "1.7": {
+    "title_ru": "Minecraft 1.7 — «Обновление, которое изменило мир»", "title_en": "Minecraft 1.7 — The Update that Changed the World",
+    "ru": "Большая переработка генерации мира (октябрь 2013). 1.7.10 — одна из самых популярных версий для модов.\n\n• Новые биомы: Пустошь (мезa), Тёмный лес, Саванна, Мегатайга, Цветочный лес, Ледяные шипы и др.\n• Новые цветы и деревья (акация, тёмный дуб)\n• Цветное стекло\n• Переработанная рыбалка: несколько видов рыбы и сокровища\n• Тип мира «Расширенный» (Amplified)",
+    "en": "A major world generation overhaul (October 2013). 1.7.10 is one of the most popular versions for mods.\n\n• New biomes: Mesa, Roofed Forest, Savanna, Mega Taiga, Flower Forest, Ice Spikes and more\n• New flowers and trees (acacia, dark oak)\n• Stained glass\n• Reworked fishing with several fish types and treasure\n• The Amplified world type"
+  },
+  "1.8": {
+    "title_ru": "Minecraft 1.8 — Bountiful Update", "title_en": "Minecraft 1.8 — Bountiful Update",
+    "ru": "Обновление сентября 2014 года. 1.8.9 до сих пор любят на PvP-серверах.\n\n• Подводные крепости и стражи\n• Кролики, чешуйницы Края\n• Блоки слизи, флаги (баннеры), стойки для брони\n• Гранит, диорит, андезит, призмарин\n• Режим наблюдателя\n• Тип мира «Настраиваемый»",
+    "en": "The September 2014 update. 1.8.9 is still loved on PvP servers.\n\n• Ocean monuments and guardians\n• Rabbits and endermites\n• Slime blocks, banners and armor stands\n• Granite, diorite, andesite and prismarine\n• Spectator mode\n• The Customized world type"
+  },
+  "1.9": {
+    "title_ru": "Minecraft 1.9 — Combat Update", "title_en": "Minecraft 1.9 — Combat Update",
+    "ru": "Переработка боя (февраль 2016).\n\n• Перезарядка атаки — удары больше не спамятся\n• Щит и вторая рука\n• Города Края, шалкеры и элитры\n• Хорус и пурпурные блоки\n• Стрелы с эффектами, свёкла\n• Переработанный Край",
+    "en": "A combat overhaul (February 2016).\n\n• Attack cooldown — no more spam clicking\n• The shield and the off-hand slot\n• End cities, shulkers and elytra\n• Chorus plants and purpur blocks\n• Tipped arrows and beetroots\n• A reworked End"
+  },
+  "1.10": {
+    "title_ru": "Minecraft 1.10 — Frostburn Update", "title_en": "Minecraft 1.10 — Frostburn Update",
+    "ru": "Небольшое обновление лета 2016 года.\n\n• Белые медведи\n• Кадавры (пустынные зомби) и зимогоры (ледяные скелеты)\n• Окаменелости под землёй\n• Магмовые блоки и блоки нароста Нижнего мира\n• Структурные блоки",
+    "en": "A small summer 2016 update.\n\n• Polar bears\n• Husks and strays\n• Underground fossils\n• Magma blocks and nether wart blocks\n• Structure blocks"
+  },
+  "1.11": {
+    "title_ru": "Minecraft 1.11 — Exploration Update", "title_en": "Minecraft 1.11 — Exploration Update",
+    "ru": "Обновление о путешествиях (ноябрь 2016).\n\n• Лесные особняки и карты исследователя\n• Ламы\n• Поборники, вызыватели и вредины\n• Тотем бессмертия\n• Шалкеровые ящики\n• Наблюдатель",
+    "en": "An exploration update (November 2016).\n\n• Woodland mansions and explorer maps\n• Llamas\n• Vindicators, evokers and vexes\n• The totem of undying\n• Shulker boxes\n• The observer"
+  },
+  "1.12": {
+    "title_ru": "Minecraft 1.12 — World of Color", "title_en": "Minecraft 1.12 — World of Color",
+    "ru": "Красочное обновление (июнь 2017). 1.12.2 — классика для больших модпаков.\n\n• Бетон и глазурованная терракота 16 цветов\n• Попугаи\n• Книга рецептов\n• Достижения (advancements) вместо старых «ачивок»\n• Разноцветные кровати",
+    "en": "A colorful update (June 2017). 1.12.2 is a classic for big modpacks.\n\n• Concrete and glazed terracotta in 16 colors\n• Parrots\n• The recipe book\n• Advancements replace the old achievements\n• Colored beds"
+  },
+  "1.13": {
+    "title_ru": "Minecraft 1.13 — Update Aquatic", "title_en": "Minecraft 1.13 — Update Aquatic",
+    "ru": "Океаны ожили (июль 2018).\n\n• Новые океанские биомы, коралловые рифы, водоросли\n• Дельфины, черепахи, тропические рыбы, утопленники и фантомы\n• Затонувшие корабли, руины и клады\n• Трезубец и проводник\n• «Уплощение»: новая система блоков, переписанные команды и наборы данных (datapacks)",
+    "en": "The oceans come alive (July 2018).\n\n• New ocean biomes, coral reefs and kelp\n• Dolphins, turtles, tropical fish, drowned and phantoms\n• Shipwrecks, ocean ruins and buried treasure\n• The trident and the conduit\n• \"The Flattening\": a new block system, rewritten commands and data packs"
+  },
+  "1.14": {
+    "title_ru": "Minecraft 1.14 — Village & Pillage", "title_en": "Minecraft 1.14 — Village & Pillage",
+    "ru": "Деревни и разбойники (апрель 2019).\n\n• Новые деревни для каждого биома и новые профессии жителей с рабочими местами\n• Разбойники, набеги и аванпосты\n• Бамбук, панды, лисы\n• Арбалет и строительные леса\n• Бочка, коптильня, плавильная печь, точило, кафедра и другие блоки\n• Странствующий торговец",
+    "en": "Villages and pillagers (April 2019).\n\n• New biome-specific villages and new villager professions with workstations\n• Pillagers, raids and outposts\n• Bamboo, pandas and foxes\n• The crossbow and scaffolding\n• Barrels, smokers, blast furnaces, grindstones, lecterns and more\n• The wandering trader"
+  },
+  "1.15": {
+    "title_ru": "Minecraft 1.15 — Buzzy Bees", "title_en": "Minecraft 1.15 — Buzzy Bees",
+    "ru": "Пчёлы и много исправлений (декабрь 2019).\n\n• Пчёлы, ульи и пчелиные гнёзда\n• Мёд, медовые соты и медовый блок\n• Сотни исправленных ошибок и улучшенная производительность",
+    "en": "Bees and lots of fixes (December 2019).\n\n• Bees, beehives and bee nests\n• Honey, honeycomb and the honey block\n• Hundreds of bug fixes and better performance"
+  },
+  "1.16": {
+    "title_ru": "Minecraft 1.16 — Nether Update", "title_en": "Minecraft 1.16 — Nether Update",
+    "ru": "Нижний мир переделан полностью (июнь 2020).\n\n• Новые биомы: багровый и искажённый леса, долина песка душ, базальтовые дельты\n• Пиглины, хоглины, зоглины и лавомерки\n• Незерит — материал лучше алмаза\n• Якорь возрождения, магнетит, бастионы\n• В 1.16.4/1.16.5 у офлайн-ника бывает серая «Сетевая игра» — TNT Launcher исправляет это автоматически",
+    "en": "The Nether, completely remade (June 2020).\n\n• New biomes: crimson and warped forests, soul sand valley, basalt deltas\n• Piglins, hoglins, zoglins and striders\n• Netherite, a material better than diamond\n• The respawn anchor, lodestones and bastions\n• In 1.16.4/1.16.5 offline nicknames can get a greyed-out Multiplayer button — TNT Launcher fixes this automatically"
+  },
+  "1.16.2": {
+    "title_ru": "Minecraft 1.16.2", "title_en": "Minecraft 1.16.2",
+    "ru": "Обновление для Nether Update.\n\n• Пиглин-громила в бастионах\n• Изменения кузнечного стола и мелкие доработки биомов Нижнего мира\n• Множество исправлений",
+    "en": "An update to the Nether Update.\n\n• The piglin brute in bastions\n• Smithing and Nether biome tweaks\n• Many bug fixes"
+  },
+  "1.16.4": {
+    "title_ru": "Minecraft 1.16.4", "title_en": "Minecraft 1.16.4",
+    "ru": "Обновление Nether Update.\n\n• Экран «Взаимодействие с игроками»: можно заглушить чат конкретного игрока\n• Исправления ошибок\n• Для офлайн-ника кнопка «Сетевая игра» может быть серой — TNT Launcher снимает это ограничение",
+    "en": "A Nether Update patch.\n\n• The Social Interactions screen: mute a specific player's chat\n• Bug fixes\n• The Multiplayer button can be greyed out for offline nicknames — TNT Launcher lifts this restriction"
+  },
+  "1.17": {
+    "title_ru": "Minecraft 1.17 — Caves & Cliffs, часть I", "title_en": "Minecraft 1.17 — Caves & Cliffs: Part I",
+    "ru": "Первая часть обновления о пещерах и горах (июнь 2021). Требует Java 16+.\n\n• Аксолотли, козы, светящиеся спруты\n• Медь, которая со временем зеленеет\n• Аметистовые жеоды и подзорная труба\n• Рыхлый снег, громоотвод, капельник\n• Светящиеся рамки для предметов",
+    "en": "The first part of the caves and mountains update (June 2021). Requires Java 16+.\n\n• Axolotls, goats and glow squids\n• Copper that oxidizes over time\n• Amethyst geodes and the spyglass\n• Powder snow, the lightning rod and dripstone\n• Glow item frames"
+  },
+  "1.18": {
+    "title_ru": "Minecraft 1.18 — Caves & Cliffs, часть II", "title_en": "Minecraft 1.18 — Caves & Cliffs: Part II",
+    "ru": "Новая генерация мира (ноябрь 2021).\n\n• Высота мира от −64 до 320\n• Огромные пещеры: сырные, спагетти и лапша, пышные пещеры и пещеры капельника\n• Высокие горы с заснеженными вершинами и новые горные биомы\n• Новое распределение руд\n• Новые музыкальные треки",
+    "en": "New world generation (November 2021).\n\n• World height from −64 to 320\n• Huge caves: cheese, spaghetti and noodle caves, lush caves and dripstone caves\n• Tall snowy mountains and new mountain biomes\n• New ore distribution\n• New music tracks"
+  },
+  "1.19": {
+    "title_ru": "Minecraft 1.19 — The Wild Update", "title_en": "Minecraft 1.19 — The Wild Update",
+    "ru": "Дикая природа и Глубокая тьма (июнь 2022).\n\n• Глубокая тьма, древние города и Хранитель (Warden)\n• Скалк-блоки, скалк-датчики и катализаторы\n• Мангровое болото, лягушки и головастики\n• Тихоня (Allay)\n• Лодки с сундуком и компас восстановления",
+    "en": "Wildlife and the Deep Dark (June 2022).\n\n• The Deep Dark, ancient cities and the Warden\n• Sculk blocks, sculk sensors and catalysts\n• Mangrove swamps, frogs and tadpoles\n• The allay\n• Boats with chests and the recovery compass"
+  },
+  "1.19.3": {
+    "title_ru": "Minecraft 1.19.3", "title_en": "Minecraft 1.19.3",
+    "ru": "Обновление для 1.19.\n\n• Новые вкладки творческого инвентаря\n• Экспериментальные функции будущего 1.20: бамбуковые блоки, подвесные таблички, верблюды\n• Переработка ключей чата и много исправлений",
+    "en": "An update to 1.19.\n\n• Reorganized Creative inventory tabs\n• Experimental 1.20 features: bamboo wood, hanging signs, camels\n• Chat key changes and many fixes"
+  },
+  "1.20": {
+    "title_ru": "Minecraft 1.20 — Trails & Tales", "title_en": "Minecraft 1.20 — Trails & Tales",
+    "ru": "Обновление о истории и самовыражении (июнь 2023).\n\n• Вишнёвая роща\n• Археология: кисть, подозрительный песок и гравий, черепки и декорированные горшки\n• Нюхач и верблюд\n• Бамбуковые блоки и подвесные таблички, надписи на обеих сторонах таблички\n• Отделка брони (кузнечные шаблоны)\n• Калиброванный скалк-датчик",
+    "en": "An update about history and self-expression (June 2023).\n\n• Cherry groves\n• Archaeology: the brush, suspicious sand and gravel, pottery sherds and decorated pots\n• The sniffer and the camel\n• Bamboo wood and hanging signs, text on both sides of a sign\n• Armor trims (smithing templates)\n• The calibrated sculk sensor"
+  },
+  "1.20.2": {
+    "title_ru": "Minecraft 1.20.2", "title_en": "Minecraft 1.20.2",
+    "ru": "Обновление для Trails & Tales.\n\n• Экспериментальная переработка торговли с жителями\n• Изменения алмазной руды и мелкие правки игрового баланса\n• Множество технических улучшений и исправлений",
+    "en": "An update to Trails & Tales.\n\n• An experimental villager trading rebalance\n• Diamond ore and gameplay balance tweaks\n• Many technical improvements and fixes"
+  },
+  "1.20.3": {
+    "title_ru": "Minecraft 1.20.3", "title_en": "Minecraft 1.20.3",
+    "ru": "Обновление для Trails & Tales.\n\n• Экспериментальные функции будущего 1.21: автокрафтер (Crafter), медные блоки, туф, испытательные камеры\n• Исправления ошибок",
+    "en": "An update to Trails & Tales.\n\n• Experimental 1.21 features: the crafter, new copper blocks, tuff variants, trial chambers\n• Bug fixes"
+  },
+  "1.20.5": {
+    "title_ru": "Minecraft 1.20.5", "title_en": "Minecraft 1.20.5",
+    "ru": "Большое обновление для 1.20 (апрель 2024). Требует Java 21.\n\n• Броненосец, его щитки и броня для волков\n• Компоненты предметов вместо NBT в командах\n• Улучшения сетевого протокола и много исправлений",
+    "en": "A big update to 1.20 (April 2024). Requires Java 21.\n\n• The armadillo, its scutes and wolf armor\n• Item components replace NBT in commands\n• Networking improvements and many fixes"
+  },
+  "1.21": {
+    "title_ru": "Minecraft 1.21 — Tricky Trials", "title_en": "Minecraft 1.21 — Tricky Trials",
+    "ru": "Испытания и ловушки (июнь 2024).\n\n• Испытательные камеры с испытательными спаунерами и хранилищами\n• Вихрь (Breeze) и болотник (Bogged)\n• Булава и заряды ветра\n• Автокрафтер\n• Медные лампы, двери и решётки, новые блоки туфа\n• Зловещие испытания",
+    "en": "Trials and traps (June 2024).\n\n• Trial chambers with trial spawners and vaults\n• The breeze and the bogged\n• The mace and wind charges\n• The crafter\n• Copper bulbs, doors and grates, new tuff blocks\n• Ominous trials"
+  },
+  "1.21.2": {
+    "title_ru": "Minecraft 1.21.2 — Bundles of Bravery", "title_en": "Minecraft 1.21.2 — Bundles of Bravery",
+    "ru": "Осеннее обновление 2024 года.\n\n• Мешочки (bundles) разных цветов\n• Экспериментальные улучшения вагонеток\n• Изменения лодок и множество исправлений",
+    "en": "The autumn 2024 drop.\n\n• Bundles in every color\n• Experimental minecart improvements\n• Boat changes and many fixes"
+  },
+  "1.21.4": {
+    "title_ru": "Minecraft 1.21.4 — The Garden Awakens", "title_en": "Minecraft 1.21.4 — The Garden Awakens",
+    "ru": "Зимнее обновление 2024 года.\n\n• Бледный сад — новый мрачный биом\n• Скрипун (Creaking) и его сердце\n• Смола и блоки из смолы\n• Бледный дуб",
+    "en": "The winter 2024 drop.\n\n• The Pale Garden, a new eerie biome\n• The creaking and the creaking heart\n• Resin and resin blocks\n• Pale oak wood"
+  },
+  "1.21.5": {
+    "title_ru": "Minecraft 1.21.5 — Spring to Life", "title_en": "Minecraft 1.21.5 — Spring to Life",
+    "ru": "Весеннее обновление 2025 года.\n\n• Новые варианты коров, свиней и куриц под климат биома\n• Падающие листья, новые цветы и кусты со светлячками\n• Звуки окружения и множество мелких улучшений",
+    "en": "The spring 2025 drop.\n\n• Climate-based variants of cows, pigs and chickens\n• Falling leaves, new flowers and firefly bushes\n• New ambient sounds and many small improvements"
+  },
+  "1.21.6": {
+    "title_ru": "Minecraft 1.21.6 — Chase the Skies", "title_en": "Minecraft 1.21.6 — Chase the Skies",
+    "ru": "Летнее обновление 2025 года.\n\n• Счастливый гаст — летающий маунт, на котором могут лететь несколько игроков\n• Панель местоположения игроков\n• Улучшения поводков и новые музыкальные треки",
+    "en": "The summer 2025 drop.\n\n• The happy ghast, a flying mount for several players\n• The player locator bar\n• Lead improvements and new music"
+  },
+  "1.21.9": {
+    "title_ru": "Minecraft 1.21.9 — The Copper Age", "title_en": "Minecraft 1.21.9 — The Copper Age",
+    "ru": "Осеннее обновление 2025 года.\n\n• Медный голем, который раскладывает вещи по сундукам\n• Медные инструменты и броня\n• Полки и другие новые блоки из меди",
+    "en": "The autumn 2025 drop.\n\n• The copper golem, which sorts items into chests\n• Copper tools and armor\n• Shelves and other new copper blocks"
+  },
+  "b1.7.3": {
+    "title_ru": "Beta 1.7.3", "title_en": "Beta 1.7.3",
+    "ru": "Последняя бета до «Приключенческого обновления» (июль 2011) и любимая версия ностальгирующих игроков.\n\n• Поршни и липкие поршни\n• Ножницы и стрижка овец\n• Классическая генерация мира без деревень и шахт\n• Без голода и бега — только сердечки",
+    "en": "The last beta before the Adventure Update (July 2011) and a nostalgia favorite.\n\n• Pistons and sticky pistons\n• Shears and sheep shearing\n• Classic world generation with no villages or mineshafts\n• No hunger or sprinting — just hearts"
+  },
+  "b1.8.1": {
+    "title_ru": "Beta 1.8.1 — Adventure Update", "title_en": "Beta 1.8.1 — Adventure Update",
+    "ru": "«Приключенческое обновление» (сентябрь 2011).\n\n• Голод и бег\n• Деревни, крепости и заброшенные шахты\n• Творческий режим\n• Эндермены, пещерные пауки, чешуйницы\n• Опыт и новая генерация мира",
+    "en": "The Adventure Update (September 2011).\n\n• Hunger and sprinting\n• Villages, strongholds and abandoned mineshafts\n• Creative mode\n• Endermen, cave spiders and silverfish\n• Experience and new terrain generation"
+  },
+  "15w14a": {
+    "title_ru": "15w14a — The Love and Hugs Update", "title_en": "15w14a — The Love and Hugs Update",
+    "ru": "Первоапрельская версия 2015 года.\n\n• Мобы-друзья, которые обнимают игрока\n• Злобный «Ремонтник» из старых версий\n• Специальные звуки и надписи\nЭто шутка — играть в ней по-серьёзному не стоит.",
+    "en": "The April Fools version of 2015.\n\n• Friendly mobs that hug the player\n• Joke items and mobs\n• Special sounds and splash texts\nIt's a joke — not meant for serious play."
+  },
+  "1.RV-Pre1": {
+    "title_ru": "1.RV-Pre1 — Trendy Update", "title_en": "1.RV-Pre1 — Trendy Update",
+    "ru": "Первоапрельская версия 2016 года, пародия на «модные» тренды.\n\n• Жители, которые делятся «мемами»\n• Платная подписка на свиней (шутка)\n• Множество нелепых изменений",
+    "en": "The April Fools version of 2016, parodying trends.\n\n• Villagers trading memes\n• A joke pig subscription\n• Lots of silly changes"
+  },
+  "3D Shareware v1.34": {
+    "title_ru": "3D Shareware v1.34", "title_en": "3D Shareware v1.34",
+    "ru": "Первоапрельская версия 2019 года, стилизованная под игру из 90-х.\n\n• Ретро-меню и «условно-бесплатная» лицензия\n• Упрощённая графика и звук\n• Шуточные ограничения",
+    "en": "The April Fools version of 2019, styled like a 90s game.\n\n• A retro menu and a fake shareware license\n• Simplified graphics and sounds\n• Joke limitations"
+  },
+  "20w14infinite": {
+    "title_ru": "20w14∞ — бесконечные измерения", "title_en": "20w14∞ — infinite dimensions",
+    "ru": "Первоапрельская версия 2020 года.\n\n• Пишите текст в книгу, бросайте её в портал — и попадайте в случайно сгенерированное измерение\n• Миллиарды странных миров с необычными блоками и правилами",
+    "en": "The April Fools version of 2020.\n\n• Write text in a book, throw it into a portal and travel to a randomly generated dimension\n• Billions of weird worlds with unusual blocks and rules"
+  },
+  "22w13oneblockatatime": {
+    "title_ru": "22w13oneBlockAtATime", "title_en": "22w13oneBlockAtATime",
+    "ru": "Первоапрельская версия 2022 года.\n\n• В инвентаре помещается только по одному блоку в слот\n• Новые шуточные блоки и предметы\n• Можно носить блоки на голове",
+    "en": "The April Fools version of 2022.\n\n• Only one item per inventory slot\n• New joke blocks and items\n• You can wear blocks on your head"
+  },
+  "23w13a_or_b": {
+    "title_ru": "23w13a_or_b — голосование", "title_en": "23w13a_or_b — voting",
+    "ru": "Первоапрельская версия 2023 года.\n\n• Игроки голосуют за правила мира прямо в игре\n• Сотни безумных изменений: от физики до внешнего вида мобов",
+    "en": "The April Fools version of 2023.\n\n• Players vote on world rules in-game\n• Hundreds of crazy changes, from physics to mob looks"
+  },
+  "24w14potato": {
+    "title_ru": "24w14potato — Poisonous Potato Update", "title_en": "24w14potato — Poisonous Potato Update",
+    "ru": "Первоапрельская версия 2024 года.\n\n• Целое измерение из ядовитого картофеля\n• Картофельные мобы, блоки и инструменты\n• Множество картофельных шуток",
+    "en": "The April Fools version of 2024.\n\n• A whole dimension made of poisonous potatoes\n• Potato mobs, blocks and tools\n• Lots of potato jokes"
+  },
+  "25w14craftmine": {
+    "title_ru": "25w14craftmine", "title_en": "25w14craftmine",
+    "ru": "Первоапрельская версия 2025 года.\n\n• Игрок «крафтит» шахты-подземелья с разными правилами\n• Награды, опыт и прокачка игрока между забегами",
+    "en": "The April Fools version of 2025.\n\n• Craft your own mine-dungeons with different rules\n• Rewards, experience and player upgrades between runs"
+  },
+  "_snapshot": {
+    "title_ru": "Снапшот %s", "title_en": "Snapshot %s",
+    "ru": "Снапшот — еженедельная тестовая сборка будущего обновления Minecraft. В нём появляются новые функции раньше всех, но возможны ошибки и вылеты.\n\nСоветуем играть в отдельном мире или сделать резервную копию.",
+    "en": "A snapshot is a weekly test build of an upcoming Minecraft update. New features show up here first, but expect bugs and crashes.\n\nPlay in a separate world or make a backup."
+  },
+  "_pre": {
+    "title_ru": "Пре-релиз %s", "title_en": "Pre-release %s",
+    "ru": "Пре-релиз (или кандидат в релиз) — почти готовая версия перед выходом обновления %s. Новых функций уже не добавляют — только исправляют ошибки.",
+    "en": "A pre-release (or release candidate) is an almost finished build before update %s. No new features are added — only bug fixes."
+  },
+  "_beta": {
+    "title_ru": "Бета %s", "title_en": "Beta %s",
+    "ru": "Бета-версия Minecraft (декабрь 2010 — ноябрь 2011): статистика и достижения, кровати, погода, полублоки, поршни, рисунки на картах.\n\nМир старой генерации, без голода (до Beta 1.8).",
+    "en": "A Minecraft beta version (December 2010 — November 2011): stats and achievements, beds, weather, slabs, pistons and maps.\n\nOld-style world generation, no hunger (before Beta 1.8)."
+  },
+  "_alpha": {
+    "title_ru": "Альфа %s", "title_en": "Alpha %s",
+    "ru": "Альфа-версия Minecraft (2010): появились Нижний мир, бесконечные миры, режим выживания с мобами, красный камень и вагонетки.\n\nОчень ранняя версия — интерфейс и механики сильно отличаются от современных.",
+    "en": "A Minecraft alpha version (2010): the Nether, infinite worlds, survival with mobs, redstone and minecarts arrived.\n\nA very early build — the interface and mechanics differ a lot from today's game."
+  },
+  "_old": {
+    "title_ru": "Ранняя версия %s", "title_en": "Early version %s",
+    "ru": "Одна из самых первых версий Minecraft (Pre-Classic, Classic или Infdev, 2009–2010). Простой мир, немного блоков — интересно посмотреть, с чего всё начиналось.",
+    "en": "One of the very first Minecraft versions (Pre-Classic, Classic or Infdev, 2009–2010). A simple world with few blocks — a look at where it all began."
+  },
+  "_release": {
+    "title_ru": "Minecraft %s", "title_en": "Minecraft %s",
+    "ru": "Обновление Minecraft %s. Подробного описания в TNT Launcher пока нет — список изменений можно посмотреть на сайте Minecraft.",
+    "en": "Minecraft update %s. TNT Launcher has no detailed description yet — see the changelog on the Minecraft website."
+  }
+}

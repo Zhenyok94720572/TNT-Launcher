@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- TNT Launcher UI strings (English, default). Russian: values-ru/strings_tnt.xml -->
+<resources>
+    <!-- Home screen -->
+    <string name="tnt_whats_new">What\'s new</string>
+    <string name="tnt_whats_new_in">What\'s new in %1$s</string>
+    <string name="tnt_nick">Nickname</string>
+    <string name="tnt_version">Version</string>
+    <string name="tnt_loading">Loading…</string>
+    <string name="tnt_isolation">Version isolation</string>
+    <string name="tnt_more">More</string>
+    <string name="tnt_mods_button">MODS</string>
+    <string name="tnt_play">PLAY</string>
+    <string name="tnt_type_release">Releases</string>
+    <string name="tnt_type_snapshot">Snapshots</string>
+    <string name="tnt_type_beta">Beta</string>
+    <string name="tnt_type_alpha">Alpha</string>
+    <string name="tnt_type_april">April Fools</string>
+    <string name="tnt_type_profiles">My profiles</string>
+    <string name="tnt_isolation_off_toast">All builds will share one folder. Forge and Fabric mods may conflict.</string>
+    <string name="tnt_loading_versions">Loading version list…</string>
+    <string name="tnt_offline_versions">No internet — showing saved versions.</string>
+    <string name="tnt_no_profiles">No custom profiles</string>
+    <string name="tnt_no_versions">No versions</string>
+    <string name="tnt_no_notes">No description for %1$s.</string>
+    <string name="tnt_translating">⏳ Translating…</string>
+    <string name="tnt_source_mojang">Official Mojang patch notes</string>
+    <string name="tnt_source_mojang_tr">Official Mojang patch notes · auto-translated</string>
+    <string name="tnt_translate_failed">Translation is unavailable right now — showing the original.</string>
+    <string name="tnt_mods_title">Mods</string>
+    <string name="tnt_mods_unsupported">Mods can\'t be installed for «%1$s».\n\nChoose a build with a mod loader: Fabric, Fabric+Sodium, Quilt, Forge, Forge+OptiFine or LiteLoader.</string>
+    <string name="tnt_nick_from_account">The nickname comes from your account. Switch accounts at the top of the screen.</string>
+    <string name="tnt_sign_in_hint">Sign in</string>
+    <string name="tnt_need_account_title">Account required</string>
+    <string name="tnt_need_account_msg">Sign in with the Microsoft account that owns Minecraft: Java Edition. Your in-game nickname will match the account.</string>
+    <string name="tnt_sign_in">Sign in</string>
+    <string name="tnt_preparing">Preparing…</string>
+    <string name="tnt_installer_running">Installing %1$s. When the installer closes, tap «Play» again.</string>
+    <string name="tnt_launch_failed">Couldn\'t launch</string>
+    <string name="tnt_launching_progress">Downloading and launching — progress is at the bottom of the screen.</string>
+
+    <!-- Launch -->
+    <string name="tnt_need_sign_in_error">Sign in to an account first (account button at the top).</string>
+    <string name="tnt_preparing_x">Preparing %1$s…</string>
+    <string name="tnt_checking_java">Checking Java…</string>
+    <string name="tnt_installing_sodium">Installing Sodium…</string>
+    <string name="tnt_downloading_optifine">Downloading OptiFine…</string>
+    <string name="tnt_launching_x">Launching %1$s…</string>
+    <string name="tnt_profile_not_found">Profile not found.</string>
+    <string name="tnt_installing_x">Installing %1$s…</string>
+    <string name="tnt_not_found_for">%1$s for %2$s was not found.</string>
+    <string name="tnt_searching_forge">Looking for Forge for %1$s…</string>
+    <string name="tnt_downloading_x">Downloading %1$s…</string>
+    <string name="tnt_loader_unavailable">%1$s isn\'t available for this version.</string>
+    <string name="tnt_download_failed_x">Couldn\'t download %1$s: %2$s</string>
+    <string name="tnt_optifine_list_failed">Couldn\'t get the OptiFine list.</string>
+    <string name="tnt_optifine_link_failed">Couldn\'t get the OptiFine download link.</string>
+    <string name="tnt_java_installing">Installing Java %1$d (one time)…</string>
+    <string name="tnt_java_none">No Java %1$d for this device.</string>
+    <string name="tnt_java_failed">Couldn\'t install Java %1$d: %2$s</string>
+    <string name="tnt_java_broken">Java %1$d was downloaded but didn\'t install.</string>
+
+    <!-- Mods -->
+    <string name="tnt_mod_not_for">«%1$s» isn\'t available for %2$s.</string>
+    <string name="tnt_mod_downloading">Downloading: %1$s</string>
+    <string name="tnt_mods_subtitle">%1$s · Modrinth catalog</string>
+    <string name="tnt_tab_catalog">CATALOG</string>
+    <string name="tnt_tab_installed">INSTALLED</string>
+    <string name="tnt_tab_installed_n">INSTALLED (%1$d)</string>
+    <string name="tnt_search_mods">Search mods…</string>
+    <string name="tnt_find">SEARCH</string>
+    <string name="tnt_mods_folder">Mods folder</string>
+    <string name="tnt_searching">Searching…</string>
+    <string name="tnt_nothing_found">Nothing found for %1$s.</string>
+    <string name="tnt_found_n">Mods found: %1$d%2$s</string>
+    <string name="tnt_no_mods">No mods yet.</string>
+    <string name="tnt_mods_in_folder">Mods in folder: %1$d</string>
+    <string name="tnt_modrinth_error">Couldn\'t reach Modrinth: %1$s</string>
+    <string name="tnt_installing_mod">Installing %1$s…</string>
+    <string name="tnt_mod_installed">«%1$s» installed.</string>
+    <string name="tnt_error_x">Error: %1$s</string>
+    <string name="tnt_remove_mod_title">Remove mod?</string>
+    <string name="tnt_remove_mod_msg">«%1$s» will be removed from this build.</string>
+    <string name="tnt_remove">Remove</string>
+    <string name="tnt_mod_removed">«%1$s» removed.</string>
+    <string name="tnt_by_author">by %1$s · %2$s downloads</string>
+    <string name="tnt_added_manually">added manually</string>
+    <string name="tnt_from_modrinth">from the Modrinth catalog</string>
+    <string name="tnt_btn_installing">INSTALLING…</string>
+    <string name="tnt_btn_remove">REMOVE</string>
+    <string name="tnt_btn_install">INSTALL</string>
+    <string name="tnt_million">%.1f M</string>
+    <string name="tnt_thousand">%.0f K</string>
+
+    <!-- Version picker -->
+    <string name="tnt_search_versions">Search: 1.20, Fabric, Forge…</string>
+    <string name="tnt_badge_profile">Profile</string>
+
+    <!-- More menu -->
+    <string name="tnt_more_accounts">Accounts: sign in to Microsoft</string>
+    <string name="tnt_more_tuning">TNT optimization</string>
+    <string name="tnt_more_settings">Launcher settings (renderer, memory, controls, language…)</string>
+    <string name="tnt_more_controls">On-screen controls editor</string>
+    <string name="tnt_more_installers">Installers and modpacks (NeoForge, Modrinth, CurseForge…)</string>
+    <string name="tnt_more_profile">Edit the profile of the last launched build</string>
+    <string name="tnt_more_jar">Install a .jar (Forge / OptiFine manually)</string>
+    <string name="tnt_more_modpack">Import a modpack (.zip / .mrpack)</string>
+    <string name="tnt_more_folder">Open game folder</string>
+    <string name="tnt_more_log">Share the last launch log</string>
+    <string name="tnt_more_gamepad">Gamepad setup</string>
+    <string name="tnt_launch_any_first">Launch any build first.</string>
+    <string name="tnt_tuning_info">Device profile: %1$s\nGame memory: %2$d MB\n\nTNT tunes the game for your phone automatically. Java flags, the 1.16 multiplayer fix and Sodium in the Fabric+Sodium build are always on.</string>
+    <string name="tnt_tune_options">Tune game settings for this device on a build\'s first launch (render distance, particles, shadows, FPS, language)</string>
+    <string name="tnt_auto_renderer">Auto-pick renderer: old versions (before 1.17) — Krypton/GL4ES, newer — MobileGlues</string>
+    <string name="tnt_tier_low">economy</string>
+    <string name="tnt_tier_mid">balanced</string>
+    <string name="tnt_tier_high">maximum</string>
+
+    <!-- Settings: about and language -->
+    <string name="tnt_about_title">About the developer</string>
+    <string name="tnt_about_summary">Authors and credits</string>
+    <string name="tnt_about_dev">developer</string>
+    <string name="tnt_about_molly">moral support</string>
+    <string name="tnt_about_based">Based on Amethyst</string>
+    <string name="tnt_language_title">Language</string>
+    <string name="tnt_language_system">System default</string>
+    <!-- Modpacks -->
+    <string name="tnt_builds">Builds</string>
+    <string name="tnt_download_build">DOWNLOAD BUILD</string>
+    <string name="tnt_modpacks_title">Download a build</string>
+    <string name="tnt_modpacks_sub">Ready-made Modrinth modpacks</string>
+    <string name="tnt_any_version">Any version</string>
+    <string name="tnt_any_loader">Any mod loader</string>
+    <string name="tnt_search_modpacks">Search modpacks…</string>
+    <string name="tnt_btn_download">DOWNLOAD</string>
+    <string name="tnt_modpack_name">Name</string>
+    <string name="tnt_modpack_version">Modpack version</string>
+    <string name="tnt_modpack_loading_versions">Loading versions…</string>
+    <string name="tnt_modpack_no_versions">No versions of this modpack match the selected game version and mod loader.</string>
+    <string name="tnt_install">Install</string>
+    <string name="tnt_modpack_started">Installing «%1$s». Progress is at the bottom of the screen; the build will appear under «My profiles».</string>
+    <string name="tnt_modpacks_found">Modpacks found: %1$d%2$s</string>
+    <string name="tnt_need_account_msg_offline">Add an account: a Microsoft account or an offline nickname (tap the account bar at the top).</string>
+    <string name="tnt_source_local">Description by TNT Launcher</string>
+    <string name="tnt_source_local_tr">Description by TNT Launcher · auto-translated</string>
+    <string name="tnt_my_versions">My versions</string>
+    <string name="tnt_download_new_version">＋ DOWNLOAD NEW VERSION</string>
+    <string name="tnt_download_new_title">Download a new version</string>
+    <string name="tnt_no_installed">Nothing installed yet. Tap «Download new version», pick a version or build and press «Play».</string>
+    <string name="tnt_choose_version">Choose a version</string>
+    <string name="tnt_manage_version">Rename or delete</string>
+    <string name="tnt_rename">Rename</string>
+    <string name="tnt_delete">Delete</string>
+    <string name="tnt_rename_title">New name</string>
+    <string name="tnt_delete_title">Delete version?</string>
+    <string name="tnt_delete_msg">«%1$s» will be removed from your versions. Shared game files stay, so it can be downloaded again quickly.</string>
+    <string name="tnt_delete_files">Also delete its folder: worlds, mods and settings (cannot be undone)</string>
+    <string name="tnt_deleted">«%1$s» deleted.</string>
+    <string name="tnt_renamed">Renamed to «%1$s».</string>
+</resources>

@@ -1,0 +1,19 @@
+# Готовые APK
+*.apk
+*.aab
+
+# Android / Gradle
+android/**/build/
+android/.gradle/
+android/**/.cxx/
+android/**/.externalNativeBuild/
+android/local.properties
+android/app_pojavlauncher/curseforge_key.txt
+android/app_pojavlauncher/tnt_release.jks
+*.iml
+.idea/
+
+# Системное
+Thumbs.db
+desktop.ini
+.DS_Store

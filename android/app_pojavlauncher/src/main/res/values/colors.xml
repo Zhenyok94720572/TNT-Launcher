@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="control_button_color">#4CC4C4C4</color>
+    <color name="control_button_pressed_color">#4D000000</color>
+
+    <!-- TNT Launcher: тёмная тема с оранжевым акцентом (как в версии для ПК) -->
+    <color name="minebutton_color">#FF8024</color>
+    <color name="background_app">#141414</color>
+    <color name="divider">@color/background_overlay</color>
+    <color name="background_overlay">#3A3A3A</color>
+    <color name="background_status_bar">#1C1C1C</color>
+    <color name="background_bottom_bar">#1A1A1A</color>
+
+    <color name="primary_text">#FFFFFF</color>
+    <color name="secondary_text">#B4B4B4</color>
+
+    <color name="tnt_accent">#FF8024</color>
+    <color name="tnt_accent_dark">#C85A10</color>
+    <color name="tnt_green">#3FA34D</color>
+    <color name="tnt_green_dark">#2C7A37</color>
+    <color name="tnt_red">#C8392B</color>
+    <color name="tnt_card">#E61C1C1C</color>
+    <color name="tnt_field">#262626</color>
+    <color name="tnt_border">#3C3C3C</color>
+    <color name="tnt_icon_bg">#1E1E1E</color>
+    <color name="tnt_scrim">#99000000</color>
+</resources>
