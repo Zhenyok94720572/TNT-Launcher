@@ -27,8 +27,10 @@ public class ExitActivity extends AppCompatActivity {
             isSignal = extras.getBoolean("isSignal", false);
         }
 
-        // TNT: обычный выход из игры (код 0) — сразу назад в лаунчер, без предложения поделиться логом
-        if (!isSignal && code == 0) {
+        // TNT: обычный выход из игры — сразу назад в лаунчер, без предложения поделиться логом.
+        // На телефонах Minecraft часто завершается с ненулевым кодом даже после «Выйти из игры»,
+        // поэтому смотрим в лог: «Stopping!» без отчёта о сбое после него — это нормальный выход.
+        if ((!isSignal && code == 0) || isNormalQuit()) {
             backToLauncher();
             return;
         }
@@ -41,6 +43,28 @@ public class ExitActivity extends AppCompatActivity {
                 .setNegativeButton(android.R.string.ok, null)
                 .setOnDismissListener(dialog -> backToLauncher())
                 .show();
+    }
+
+    /** Игрок сам вышел из игры (в логе есть «Stopping!», а после него нет отчёта о сбое). */
+    public static boolean isNormalQuit() {
+        if (Tools.DIR_GAME_HOME == null) return false;
+        java.io.File log = new java.io.File(Tools.DIR_GAME_HOME, "latestlog.txt");
+        if (!log.isFile()) return false;
+        try (java.io.RandomAccessFile f = new java.io.RandomAccessFile(log, "r")) {
+            long len = f.length();
+            int size = (int) Math.min(len, 256 * 1024);
+            byte[] buf = new byte[size];
+            f.seek(len - size);
+            f.readFully(buf);
+            String tail = new String(buf, java.nio.charset.StandardCharsets.UTF_8);
+            int stop = tail.lastIndexOf("Stopping!");
+            if (stop < 0) return false;
+            String after = tail.substring(stop);
+            return !after.contains("Crash Report") && !after.contains("Game crashed")
+                    && !after.contains("Exception in thread \"main\"") && !after.contains("A fatal error");
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     private void backToLauncher() {

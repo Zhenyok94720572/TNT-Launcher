@@ -150,4 +150,7 @@
     <string name="tnt_delete_files">Удалить и её папку: миры, моды и настройки (без возможности восстановить)</string>
     <string name="tnt_deleted">«%1$s» удалена.</string>
     <string name="tnt_renamed">Переименовано в «%1$s».</string>
+    <string name="tnt_new_install_title">Новая установка</string>
+    <string name="tnt_new_install_msg">Будет создана отдельная установка %1$s со своей папкой (миры, моды, настройки). Одну версию можно ставить сколько угодно раз. Название:</string>
+    <string name="tnt_new_install_ok">Создать</string>
 </resources>

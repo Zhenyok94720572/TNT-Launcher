@@ -102,16 +102,9 @@ public class MainMenuFragment extends Fragment implements TntLauncher.Callback {
                             mItems = TntItem.installed(sData);
                             return mItems;
                         }
-                        @Override public void onRenamed(String oldName, String newName) {
-                            String keep = TntLauncher.prefs(ctx).getString(TntLauncher.KEY_VERSION, "");
-                            if (keep.equals(oldName)) TntLauncher.prefs(ctx).edit().putString(TntLauncher.KEY_VERSION, newName).apply();
-                            rebuild();
-                        }
-                        @Override public void onDeleted(String name) {
-                            String keep = TntLauncher.prefs(ctx).getString(TntLauncher.KEY_VERSION, "");
-                            if (keep.equals(name)) TntLauncher.prefs(ctx).edit().remove(TntLauncher.KEY_VERSION).apply();
-                            rebuild();
-                        }
+                        // выбор хранится по ключу установки, поэтому переименование его не сбивает
+                        @Override public void onRenamed(String oldName, String newName) { rebuild(); }
+                        @Override public void onDeleted(String name) { rebuild(); }
                     });
         });
         more.setOnClickListener(v -> TntMoreMenu.show(requireActivity()));
@@ -132,7 +125,36 @@ public class MainMenuFragment extends Fragment implements TntLauncher.Callback {
         int cat = TntLauncher.prefs(requireContext()).getInt(TntLauncher.KEY_TYPE, TntVersions.T_RELEASE);
         TntVersionPicker.showCatalog(requireContext(), sData, cat, mSelected,
                 c -> TntLauncher.prefs(requireContext()).edit().putInt(TntLauncher.KEY_TYPE, c).apply(),
-                this::select);
+                this::askNameAndInstall);
+    }
+
+    /**
+     * Выбор в каталоге = новая установка (как в Pojav): одну версию можно поставить несколько раз,
+     * у каждой копии своё название и своя папка.
+     */
+    private void askNameAndInstall(TntItem catalogItem) {
+        if (catalogItem == null || catalogItem.entry == null) return;
+        Context c = requireContext();
+        EditText input = new EditText(c);
+        input.setSingleLine(true);
+        input.setTextColor(0xFFFFFFFF);
+        input.setText(TntLauncher.uniqueName(catalogItem.entry.name()));
+        input.setSelectAllOnFocus(true);
+        LinearLayout box = new LinearLayout(c);
+        int pad = (int) (20 * getResources().getDisplayMetrics().density);
+        box.setPadding(pad, pad / 2, pad, 0);
+        box.addView(input, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        new AlertDialog.Builder(c)
+                .setTitle(R.string.tnt_new_install_title)
+                .setMessage(getString(R.string.tnt_new_install_msg, catalogItem.entry.name()))
+                .setView(box)
+                .setPositiveButton(R.string.tnt_new_install_ok, (d, w) -> {
+                    String key = TntLauncher.createInstall(c, catalogItem.entry, input.getText().toString());
+                    TntLauncher.prefs(c).edit().putString(TntLauncher.KEY_SELECTED, key).apply();
+                    rebuild();
+                })
+                .setNegativeButton(android.R.string.cancel, null)
+                .show();
     }
 
     private void load() {
@@ -157,11 +179,10 @@ public class MainMenuFragment extends Fragment implements TntLauncher.Callback {
     private void rebuild() {
         if (!isAdded()) return;
         mItems = TntItem.installed(sData);
-        String keep = TntLauncher.prefs(requireContext()).getString(TntLauncher.KEY_VERSION, "");
+        // выбор — по ключу установки, а не по названию: одинаковые названия и копии одной версии не путаются
+        String keep = TntLauncher.prefs(requireContext()).getString(TntLauncher.KEY_SELECTED, "");
         TntItem pick = null;
-        for (TntItem i : mItems) if (i.name.equals(keep)) { pick = i; break; }
-        // выбранная, но ещё не установленная версия из каталога (установится при «Играть»)
-        if (pick == null && !keep.isEmpty()) pick = TntItem.findInCatalog(sData, keep);
+        for (TntItem i : mItems) if (keep.equals(i.profileKey)) { pick = i; break; }
         if (pick == null && !mItems.isEmpty()) pick = mItems.get(0);
         select(pick);
     }
@@ -173,7 +194,7 @@ public class MainMenuFragment extends Fragment implements TntLauncher.Callback {
             mPlay.setEnabled(false);
             return;
         }
-        TntLauncher.prefs(requireContext()).edit().putString(TntLauncher.KEY_VERSION, item.name).apply();
+        if (item.profileKey != null) TntLauncher.prefs(requireContext()).edit().putString(TntLauncher.KEY_SELECTED, item.profileKey).apply();
         mVersion.setText(item.name);
         mPlay.setEnabled(!mBusy);
         String version = item.mcVersion();
@@ -264,7 +285,7 @@ public class MainMenuFragment extends Fragment implements TntLauncher.Callback {
             return;
         }
         setBusy(true, getString(R.string.tnt_preparing));
-        if (mSelected.entry != null) TntLauncher.play(requireActivity(), mSelected.entry, this);
+        if (mSelected.entry != null) TntLauncher.play(requireActivity(), mSelected.entry, mSelected.profileKey, this);
         else TntLauncher.playProfile(requireActivity(), mSelected.profileKey, this);
     }
 

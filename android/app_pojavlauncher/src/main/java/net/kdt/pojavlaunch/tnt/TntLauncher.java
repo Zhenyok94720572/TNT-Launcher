@@ -43,7 +43,7 @@ import java.util.regex.Pattern;
 public final class TntLauncher {
     private static final String TAG = "TntLauncher";
     public static final String PREFS = "tnt_launcher";
-    public static final String KEY_NICK = "nick", KEY_VERSION = "version", KEY_TYPE = "type",
+    public static final String KEY_NICK = "nick", KEY_VERSION = "version", KEY_TYPE = "type", KEY_SELECTED = "selected_profile",
             KEY_ISOLATION = "isolation", KEY_AUTO_RENDERER = "auto_renderer", KEY_TUNE_OPTIONS = "tune_options";
     private static final Pattern NICK = Pattern.compile("^[A-Za-z0-9_]{3,16}$");
 
@@ -65,17 +65,52 @@ public final class TntLauncher {
 
     public static boolean validNick(String nick) { return nick != null && NICK.matcher(nick).matches(); }
 
-    /** Папка игры сборки относительно DIR_GAME_HOME (null — общая .minecraft). */
-    public static String gameDirFor(Context c, TntVersions.Entry e) {
-        return isolation(c) ? "./instances/" + e.loader.instanceName(e.mc.id) : null;
+    // ---------- установки: у каждой своя запись (профиль) и своя папка ----------
+
+    /** Папка модов установки (по её профилю). */
+    public static File modsDir(String profileKey) {
+        LauncherProfiles.load();
+        MinecraftProfile p = LauncherProfiles.mainProfileJson.profiles.get(profileKey);
+        return new File(p == null ? new File(Tools.DIR_GAME_NEW) : Tools.getGameDirPath(p), "mods");
     }
 
-    public static File gameDirFile(Context c, TntVersions.Entry e) {
-        String rel = gameDirFor(c, e);
-        return rel == null ? new File(Tools.DIR_GAME_NEW) : new File(Tools.DIR_GAME_HOME, rel);
+    /** Свободное название: «Fabric 1.20.1», «Fabric 1.20.1 (2)», ... */
+    public static String uniqueName(String base) {
+        LauncherProfiles.load();
+        java.util.Set<String> used = new java.util.HashSet<>();
+        for (MinecraftProfile p : LauncherProfiles.mainProfileJson.profiles.values()) if (p.name != null) used.add(p.name);
+        if (!used.contains(base)) return base;
+        for (int i = 2; ; i++) if (!used.contains(base + " (" + i + ")")) return base + " (" + i + ")";
     }
 
-    public static File modsDir(Context c, TntVersions.Entry e) { return new File(gameDirFile(c, e), "mods"); }
+    /** Свободная папка установки: instances/Fabric-1.20.1, instances/Fabric-1.20.1-2, ... */
+    private static String uniqueGameDir(String instance) {
+        java.util.Set<String> used = new java.util.HashSet<>();
+        for (MinecraftProfile p : LauncherProfiles.mainProfileJson.profiles.values()) if (p.gameDir != null) used.add(p.gameDir);
+        String base = "./instances/" + instance;
+        if (!used.contains(base)) return base;
+        for (int i = 2; ; i++) if (!used.contains(base + "-" + i)) return base + "-" + i;
+    }
+
+    /**
+     * Новая установка версии/сборки — как профиль в Pojav: одну и ту же версию можно поставить сколько угодно раз,
+     * у каждой копии своё название и своя папка (миры, моды, настройки).
+     * @return ключ профиля (UUID)
+     */
+    public static String createInstall(Context c, TntVersions.Entry e, String name) {
+        LauncherProfiles.load();
+        String instance = e.loader.instanceName(e.mc.id);
+        MinecraftProfile p = new MinecraftProfile();
+        p.type = PROFILE_TYPE + instance;
+        p.name = name == null || name.trim().isEmpty() ? uniqueName(e.name()) : name.trim();
+        p.lastVersionId = e.mc.id; // настоящий id (fabric-loader-... и т.п.) пропишется при первом запуске
+        p.gameDir = isolation(c) ? uniqueGameDir(instance) : null;
+        p.icon = iconFor(e.loader);
+        String key = LauncherProfiles.getFreeProfileKey();
+        LauncherProfiles.mainProfileJson.profiles.put(key, p);
+        LauncherProfiles.write();
+        return key;
+    }
 
     // ---------- аккаунт ----------
 
@@ -115,10 +150,10 @@ public final class TntLauncher {
 
     // ---------- запуск ----------
 
-    public static void play(Activity activity, TntVersions.Entry e, Callback cb) {
+    public static void play(Activity activity, TntVersions.Entry e, String profileKey, Callback cb) {
         PojavApplication.sExecutorService.execute(() -> {
             try {
-                if (prepare(activity, e, cb)) {
+                if (prepare(activity, e, profileKey, cb)) {
                     Tools.runOnUiThread(() -> {
                         cb.launched();
                         ExtraCore.setValue(ExtraConstants.LAUNCH_GAME, true);
@@ -160,7 +195,7 @@ public final class TntLauncher {
     }
 
     /** @return true — можно запускать; false — запущен установщик или показана ошибка. */
-    private static boolean prepare(Activity a, TntVersions.Entry e, Callback cb) throws Exception {
+    private static boolean prepare(Activity a, TntVersions.Entry e, String key, Callback cb) throws Exception {
         String mc = e.mc.id;
         cb.status(TntText.s(R.string.tnt_preparing_x, e.name()));
         requireAccount(a);
@@ -203,7 +238,12 @@ public final class TntLauncher {
                 versionId = mc;
         }
 
-        File gameDir = gameDirFile(a, e);
+        // Своя запись этой установки (если её удалили между выбором и запуском — создаём заново)
+        LauncherProfiles.load();
+        cleanupStaleProfiles();
+        if (key == null || !LauncherProfiles.mainProfileJson.profiles.containsKey(key)) key = createInstall(a, e, null);
+        MinecraftProfile p = LauncherProfiles.mainProfileJson.profiles.get(key);
+        File gameDir = Tools.getGameDirPath(p);
         File mods = new File(gameDir, "mods");
         FileUtils.ensureDirectory(mods);
 
@@ -224,16 +264,12 @@ public final class TntLauncher {
 
         if (prefs(a).getBoolean(KEY_TUNE_OPTIONS, true)) TntTuning.prepareOptions(a, gameDir, mc);
 
-        // Профиль лаунчера для этой сборки
+        // Обновляем запись именно этой установки (название и папку игрока не трогаем)
         LauncherProfiles.load();
-        String key = profileKey(e.loader.instanceName(mc));
-        cleanupStaleProfiles();
-        MinecraftProfile p = LauncherProfiles.mainProfileJson.profiles.get(key);
-        if (p == null) p = new MinecraftProfile();
+        p = LauncherProfiles.mainProfileJson.profiles.get(key);
         p.type = PROFILE_TYPE + e.loader.instanceName(mc);
-        if (p.name == null || p.name.isEmpty()) p.name = e.name(); // своё название игрока не затираем
+        if (p.name == null || p.name.isEmpty()) p.name = e.name();
         p.lastVersionId = versionId;
-        p.gameDir = gameDirFor(a, e);
         p.icon = iconFor(e.loader);
         p.javaDir = TntJava.profileJavaDir(runtime);
         p.controlFile = null; // стандартное управление
@@ -305,25 +341,16 @@ public final class TntLauncher {
     }
 
     /**
-     * Ключ профиля обязан быть UUID — иначе при следующей загрузке он заменяется случайным,
-     * и игра не находит профиль («The current profile stopped existing»). Поэтому UUID выводим из имени сборки.
+     * Убирает только профили самой первой версии TNT (без пометки type, с битым ключом).
+     * Ключи профилей — UUID (иначе движок переименует их и игра не найдёт профиль); дубликаты одной
+     * версии — это нормально: каждая установка независима.
      */
-    static String profileKey(String instance) {
-        return java.util.UUID.nameUUIDFromBytes(("tnt:" + instance).getBytes(StandardCharsets.UTF_8)).toString();
-    }
-
-    /** Убирает профили TNT, оставшиеся от старых версий лаунчера (со случайными ключами). */
     private static void cleanupStaleProfiles() {
         java.util.Iterator<java.util.Map.Entry<String, MinecraftProfile>> it =
                 LauncherProfiles.mainProfileJson.profiles.entrySet().iterator();
         while (it.hasNext()) {
-            java.util.Map.Entry<String, MinecraftProfile> en = it.next();
-            MinecraftProfile p = en.getValue();
-            if (isTntProfile(p)) {
-                if (!profileKey(p.type.substring(PROFILE_TYPE.length())).equals(en.getKey())) it.remove();
-            } else if (p.type == null && p.gameDir != null && p.gameDir.startsWith("./instances/")) {
-                it.remove(); // профиль первой версии TNT с битым ключом
-            }
+            MinecraftProfile p = it.next().getValue();
+            if (p.type == null && p.gameDir != null && p.gameDir.startsWith("./instances/") && p.lastVersionId == null) it.remove();
         }
     }
 

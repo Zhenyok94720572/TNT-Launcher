@@ -142,7 +142,7 @@ public final class TntVersionPicker {
                     badge.setSelected(it.entry != null && it.entry.loader != TntLoader.VANILLA);
                     ((TextView) row.findViewById(R.id.tnt_ver_name)).setText(it.name);
                     ((TextView) row.findViewById(R.id.tnt_ver_date)).setText(it.date);
-                    boolean cur = current != null && current.name.equals(it.name);
+                    boolean cur = current != null && (current.profileKey != null && it.profileKey != null ? current.profileKey.equals(it.profileKey) : current.name.equals(it.name));
                     row.setBackgroundColor(cur ? 0x33FF8024 : Color.TRANSPARENT);
                     View menu = row.findViewById(R.id.tnt_ver_menu);
                     boolean manageable = manager != null && it.profileKey != null;

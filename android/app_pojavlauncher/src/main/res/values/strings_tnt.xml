@@ -157,4 +157,7 @@
     <string name="tnt_delete_files">Also delete its folder: worlds, mods and settings (cannot be undone)</string>
     <string name="tnt_deleted">«%1$s» deleted.</string>
     <string name="tnt_renamed">Renamed to «%1$s».</string>
+    <string name="tnt_new_install_title">New install</string>
+    <string name="tnt_new_install_msg">A separate install of %1$s will be created with its own folder (worlds, mods, settings). You can install the same version as many times as you like. Name:</string>
+    <string name="tnt_new_install_ok">Create</string>
 </resources>

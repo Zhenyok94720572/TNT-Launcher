@@ -158,8 +158,8 @@ public final class TntItem {
     public ModTarget modTarget(Context c) {
         if (entry != null) {
             if (!entry.loader.supportsMods()) return null;
-            return new ModTarget(entry.name(), entry.mc.id, entry.loader.modLoaders,
-                    TntLauncher.modsDir(c, entry).getAbsolutePath());
+            return new ModTarget(name, entry.mc.id, entry.loader.modLoaders,
+                    TntLauncher.modsDir(profileKey).getAbsolutePath());
         }
         LauncherProfiles.load();
         MinecraftProfile p = LauncherProfiles.mainProfileJson.profiles.get(profileKey);
