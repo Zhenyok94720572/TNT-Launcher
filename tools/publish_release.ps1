@@ -33,7 +33,7 @@ function TryGet($Url) {
 
 $notes = [IO.File]::ReadAllText((Resolve-Path $NotesFile), [Text.Encoding]::UTF8)
 $apkPath = (Resolve-Path $Apk).Path
-$assetName = "TNTLauncher-" + $Tag.TrimStart('v') + ".apk"
+$assetName = "TNTLauncher.apk" # постоянное имя: сайт качает releases/latest/download/TNTLauncher.apk
 
 function Publish($Repo, $Target) {
     $rel = TryGet "$api/repos/$Owner/$Repo/releases/tags/$Tag"

@@ -148,6 +148,14 @@ public final class TntVersionPicker {
                     boolean manageable = manager != null && it.profileKey != null;
                     menu.setVisibility(manageable ? View.VISIBLE : View.GONE);
                     menu.setOnClickListener(manageable ? mv -> showMenu(ctx, mv, it) : null);
+                    // ImageButton сам делает себя фокусируемым, и тогда ListView перестаёт получать нажатия
+                    // на строку — версия не выбиралась. Поэтому нажатие на строку обрабатываем напрямую.
+                    menu.setFocusable(false);
+                    menu.setFocusableInTouchMode(false);
+                    row.setOnClickListener(rv -> {
+                        listener.onPicked(it);
+                        dialog.dismiss();
+                    });
                     return row;
                 }
             };

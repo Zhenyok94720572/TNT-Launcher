@@ -90,6 +90,8 @@ public class MainActivity extends BaseActivity implements ControlButtonMenuListe
     public static volatile ClipboardManager GLOBAL_CLIPBOARD;
     public static final String TAG = "MainActivity";
     public static final String INTENT_MINECRAFT_VERSION = "intent_version";
+    /** TNT: ключ установки (профиля), которую нужно запустить. */
+    public static final String INTENT_TNT_PROFILE = "tnt_profile";
 
     volatile public static boolean isInputStackCall;
 
@@ -126,6 +128,12 @@ public class MainActivity extends BaseActivity implements ControlButtonMenuListe
         super.onCreate(savedInstanceState);
         WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
 
+        // TNT: берём установку из запуска и свежий список профилей с диска (процесс игры отдельный от лаунчера)
+        String tntProfile = getIntent().getStringExtra(INTENT_TNT_PROFILE);
+        if (tntProfile != null && !tntProfile.isEmpty()) {
+            LauncherPreferences.DEFAULT_PREF.edit().putString(LauncherPreferences.PREF_KEY_CURRENT_PROFILE, tntProfile).commit();
+        }
+        LauncherProfiles.load();
         minecraftProfile = LauncherProfiles.getCurrentProfile();
         Tools.useANGLE = minecraftProfile.useANGLE;
 

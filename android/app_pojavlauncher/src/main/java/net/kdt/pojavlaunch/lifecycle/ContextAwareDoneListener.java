@@ -27,8 +27,30 @@ public class ContextAwareDoneListener implements AsyncMinecraftDownloader.DoneLi
     private Intent createGameStartIntent(Context context) {
         Intent mainIntent = new Intent(context, MainActivity.class);
         mainIntent.putExtra(INTENT_MINECRAFT_VERSION, mNormalizedVersionid);
+        // TNT: какую установку запускать — передаём явно (процесс игры отдельный, его кэш настроек мог устареть)
+        mainIntent.putExtra(MainActivity.INTENT_TNT_PROFILE, net.kdt.pojavlaunch.prefs.LauncherPreferences.DEFAULT_PREF
+                .getString(net.kdt.pojavlaunch.prefs.LauncherPreferences.PREF_KEY_CURRENT_PROFILE, ""));
         mainIntent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
         return mainIntent;
+    }
+
+    /**
+     * TNT: если от прошлого запуска ещё жив процесс игры (:game), Android с singleTop просто покажет старую игру
+     * вместо выбранной версии. Закрываем его перед новым запуском.
+     */
+    static void killOldGame(Context context) {
+        try {
+            android.app.ActivityManager am = (android.app.ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+            java.util.List<android.app.ActivityManager.RunningAppProcessInfo> procs = am.getRunningAppProcesses();
+            if (procs == null) return;
+            String game = context.getPackageName() + ":game";
+            for (android.app.ActivityManager.RunningAppProcessInfo p : procs) {
+                if (game.equals(p.processName) && p.pid != android.os.Process.myPid()) {
+                    android.os.Process.killProcess(p.pid);
+                }
+            }
+            Thread.sleep(300); // даём системе убрать процесс, прежде чем запускать игру заново
+        } catch (Exception ignored) {}
     }
 
     @Override
@@ -44,6 +66,7 @@ public class ContextAwareDoneListener implements AsyncMinecraftDownloader.DoneLi
     @Override
     public void executeWithActivity(Activity activity) {
         try {
+            killOldGame(activity);
             Intent gameStartIntent = createGameStartIntent(activity);
             activity.startActivity(gameStartIntent);
             activity.finish();
