@@ -1,4 +1,4 @@
-﻿# Публикует релиз TNT Launcher на GitHub: релиз в репозитории с кодом и APK в публичном репозитории релизов.
+﻿# Публикует релиз TNT Launcher на GitHub: релиз с APK в открытом репозитории с кодом.
 # Вход в GitHub берётся из Git Credential Manager (тот же, что и для git push); токен не выводится.
 param(
     [Parameter(Mandatory = $true)][string]$Tag,          # например v1.1
@@ -7,7 +7,6 @@ param(
     [Parameter(Mandatory = $true)][string]$Apk,          # путь к APK
     [string]$Owner = "Zhenyok94720572",
     [string]$CodeRepo = "TNT-Launcher",
-    [string]$PublicRepo = "tnt-launcher-releases",
     [string]$Git = ""
 )
 $ErrorActionPreference = 'Stop'
@@ -36,21 +35,6 @@ $notes = [IO.File]::ReadAllText((Resolve-Path $NotesFile), [Text.Encoding]::UTF8
 $apkPath = (Resolve-Path $Apk).Path
 $assetName = "TNTLauncher-" + $Tag.TrimStart('v') + ".apk"
 
-# --- публичный репозиторий только для APK ---
-if (-not (TryGet "$api/repos/$Owner/$PublicRepo")) {
-    Write-Host "Создаю публичный репозиторий $PublicRepo..."
-    Api POST "$api/user/repos" @{ name = $PublicRepo; private = $false; auto_init = $true;
-        description = "TNT Launcher — Minecraft: Java Edition launcher for Android. APK downloads." } | Out-Null
-    Start-Sleep -Seconds 3
-    $readme = "# TNT Launcher`n`nЛаунчер Minecraft: Java Edition для Android (телефоны и планшеты).`n`n" +
-        "**Скачать:** [последний релиз](https://github.com/$Owner/$PublicRepo/releases/latest) — файл ``TNTLauncher-*.apk``.`n`n" +
-        "Официальный Telegram-канал: https://t.me/tntlaunchermobile`n`n" +
-        "Авторы: Zhenyok — разработчик, Molly — моральная поддержка. На основе Amethyst (LGPLv3).`n"
-    $cur = Api GET "$api/repos/$Owner/$PublicRepo/contents/README.md" $null
-    Api PUT "$api/repos/$Owner/$PublicRepo/contents/README.md" @{ message = "README"; sha = $cur.sha;
-        content = [Convert]::ToBase64String([Text.Encoding]::UTF8.GetBytes($readme)) } | Out-Null
-}
-
 function Publish($Repo, $Target) {
     $rel = TryGet "$api/repos/$Owner/$Repo/releases/tags/$Tag"
     if (-not $rel) {
@@ -68,5 +52,4 @@ function Publish($Repo, $Target) {
 }
 
 Publish $CodeRepo "main"
-Publish $PublicRepo $null
 Write-Host "Готово."
