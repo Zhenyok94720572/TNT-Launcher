@@ -8,10 +8,11 @@ param(
     [string]$Owner = "Zhenyok94720572",
     [string]$CodeRepo = "TNT-Launcher",
     [string]$PublicRepo = "tnt-launcher-releases",
-    [string]$Git = "$PSScriptRoot\..\..\..\tnt-android-tools\git\cmd\git.exe"
+    [string]$Git = ""
 )
 $ErrorActionPreference = 'Stop'
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+if (-not $Git) { $Git = Join-Path $env:USERPROFILE "tnt-android-tools\git\cmd\git.exe" }
 if (-not (Test-Path $Git)) { $Git = "git" }
 
 # --- токен из Git Credential Manager (не печатаем) ---
