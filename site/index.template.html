@@ -1,0 +1,269 @@
+<title>TNT Launcher</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Manrope:wght@400;500;700;800&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: тёмная «шахта» с узором Beground; слева обещание + кнопка скачивания, справа — телефон с экраном лаунчера */
+:root {
+  --bg: #121110;
+  --bg-2: #1b1917;
+  --card: #201d1a;
+  --line: #3a332c;
+  --fg: #f4efe9;
+  --muted: #b4aaa0;
+  --tnt: #ff8024;
+  --tnt-deep: #c85a10;
+  --fuse: #ffd166;
+  --green: #3fa34d;
+  --display: "Russo One", "Arial Black", system-ui, sans-serif;
+  --body: "Manrope", "Segoe UI", system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { animation: none !important; transition: none !important; } }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font: 16px/1.6 var(--body);
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+a { color: var(--tnt); }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--fuse); outline-offset: 3px; border-radius: 8px; }
+.wrap { max-width: 1120px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+
+/* ---------- верх ---------- */
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+.top .wrap { display: flex; align-items: center; gap: 12px; padding-block: 10px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--fg); font-family: var(--display); font-size: 18px; letter-spacing: .04em; }
+.brand img { width: 34px; height: 34px; image-rendering: pixelated; }
+.brand b { color: var(--tnt); font-weight: 400; }
+.top nav { margin-left: auto; display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+.top nav a { color: var(--muted); text-decoration: none; font-weight: 700; font-size: 14px; }
+.top nav a:hover { color: var(--fg); }
+.top .tg-mini { color: var(--fg); background: #229ed9; padding: 6px 12px; border-radius: 999px; }
+@media (max-width: 640px) { .top nav a:not(.tg-mini) { display: none; } }
+
+/* ---------- hero ---------- */
+.hero { position: relative; overflow: hidden; border-bottom: 1px solid var(--line); }
+.hero::before { content: ""; position: absolute; inset: 0; background-image: url("{{BG}}"); background-size: 214px 120px; image-rendering: pixelated; opacity: .32; }
+.hero::after { content: ""; position: absolute; inset: 0; background: radial-gradient(60% 70% at 72% 40%, rgba(255,128,36,.20), transparent 70%), linear-gradient(180deg, transparent 60%, var(--bg)); }
+.hero .wrap { position: relative; z-index: 1; display: grid; grid-template-columns: 1.15fr .85fr; gap: 40px; align-items: center; padding-block: 56px 64px; }
+.hero h1 { font-family: var(--display); font-weight: 400; font-size: clamp(34px, 6vw, 62px); line-height: 1.05; margin: 0 0 18px; text-wrap: balance; }
+.hero h1 span { color: var(--tnt); }
+.hero p.lead { font-size: 19px; color: var(--muted); max-width: 34em; margin: 0 0 26px; }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.btn { display: inline-flex; align-items: center; gap: 10px; font: 800 17px/1 var(--body); text-decoration: none; padding: 16px 22px; border-radius: 12px; border: 1px solid transparent; cursor: pointer; }
+.btn-dl { color: #fff; background: linear-gradient(180deg, #4cbb5a, #2c7a37); border-color: #5fd06c; box-shadow: 0 6px 0 #1f5a28, 0 10px 30px rgba(63,163,77,.25); }
+.btn-dl:hover { transform: translateY(1px); box-shadow: 0 5px 0 #1f5a28, 0 8px 24px rgba(63,163,77,.3); }
+.btn-dl:active { transform: translateY(5px); box-shadow: 0 1px 0 #1f5a28; }
+.btn-tg { color: var(--fg); background: transparent; border-color: var(--line); }
+.btn-tg:hover { border-color: #229ed9; }
+.meta { margin-top: 16px; font: 500 13px/1.5 var(--mono); color: var(--muted); }
+.meta b { color: var(--fg); font-weight: 500; }
+
+/* телефон с экраном лаунчера */
+.phone { justify-self: center; width: min(300px, 100%); aspect-ratio: 9 / 19; max-width: 100%; background: #0b0a09; border: 2px solid #3d3631; border-radius: 34px; padding: 12px; box-shadow: 0 30px 60px rgba(0,0,0,.55), inset 0 0 0 1px #000; transform: rotate(2deg); }
+.screen { height: 100%; border-radius: 24px; overflow: hidden; display: flex; flex-direction: column; background: var(--bg-2); background-image: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)), url("{{BG}}"); background-size: auto, 107px 60px; image-rendering: pixelated; font-size: 10px; line-height: 1.35; }
+.s-bar { display: flex; align-items: center; gap: 6px; padding: 8px 10px; background: #1c1c1c; font: 400 11px var(--display); color: var(--tnt); }
+.s-bar img { width: 16px; height: 16px; }
+.s-bar i { margin-left: auto; font: 700 9px var(--body); color: var(--muted); font-style: normal; }
+.s-card { margin: 7px 7px 0; padding: 8px; border-radius: 9px; background: rgba(28,28,28,.92); border: 1px solid #3c3c3c; }
+.s-news { flex: 1; overflow: hidden; }
+.s-news h4 { margin: 0 0 2px; font: 800 11px var(--body); color: var(--tnt); }
+.s-news small { color: var(--muted); font-size: 8px; }
+.s-news p { margin: 6px 0 0; color: #ddd; }
+.s-row { display: grid; grid-template-columns: 1fr 1.3fr; gap: 6px; }
+.s-label { color: var(--muted); font-size: 8px; margin-bottom: 2px; }
+.s-field { background: #262626; border: 1px solid #3c3c3c; border-radius: 6px; padding: 6px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.s-field.dl { color: var(--tnt); border-color: var(--tnt-deep); text-align: center; font-size: 8px; }
+.s-switch { display: flex; align-items: center; justify-content: space-between; margin-top: 6px; font-size: 9px; }
+.s-switch span { width: 22px; height: 12px; border-radius: 99px; background: var(--tnt); position: relative; }
+.s-switch span::after { content: ""; position: absolute; right: 2px; top: 2px; width: 8px; height: 8px; border-radius: 50%; background: #fff; }
+.s-btns { display: grid; grid-template-columns: 22px 1fr 1.6fr; gap: 5px; margin: 7px 0 2px; }
+.s-btns div { height: 26px; border-radius: 7px; display: grid; place-items: center; font-weight: 800; font-size: 9px; }
+.s-more { background: #242424; border: 1px solid var(--tnt-deep); color: #fff; }
+.s-mods { background: #242424; border: 1px solid var(--tnt-deep); color: var(--tnt); }
+.s-play { background: linear-gradient(180deg, #4cbb5a, #2c7a37); color: #fff; border: 1px solid #5fd06c; }
+
+/* ---------- секции ---------- */
+section { padding-block: 64px; }
+.kicker { font: 500 12px var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--tnt); margin: 0 0 8px; }
+h2 { font-family: var(--display); font-weight: 400; font-size: clamp(26px, 4vw, 38px); line-height: 1.15; margin: 0 0 28px; text-wrap: balance; }
+.feat { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.feat article { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 20px; min-width: 0; }
+.feat h3 { margin: 0 0 6px; font-size: 18px; font-weight: 800; }
+.feat p { margin: 0; color: var(--muted); font-size: 15px; }
+.feat .tag { display: inline-block; font: 500 11px var(--mono); color: var(--fuse); border: 1px solid #5a4a26; border-radius: 6px; padding: 1px 6px; margin-bottom: 10px; }
+
+.builds { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+.builds span { font: 700 13px var(--body); padding: 7px 12px; border-radius: 999px; background: var(--bg-2); border: 1px solid var(--line); }
+.builds span.on { background: var(--tnt); border-color: var(--tnt); color: #1a1007; }
+
+.steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 28px; counter-reset: s; }
+.steps li { counter-increment: s; display: grid; grid-template-columns: 44px 1fr; gap: 14px; align-items: start; min-width: 0; }
+.steps li::before { content: counter(s); font-family: var(--display); font-size: 22px; color: #1a1007; background: var(--tnt); width: 44px; height: 44px; display: grid; place-items: center; border-radius: 10px; box-shadow: inset 0 -4px 0 var(--tnt-deep); }
+.steps h3 { margin: 6px 0 4px; font-size: 17px; }
+.steps p { margin: 0; color: var(--muted); font-size: 15px; }
+code { font: 500 .9em var(--mono); background: var(--bg-2); border: 1px solid var(--line); border-radius: 5px; padding: 1px 5px; }
+
+.req { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+.req div { padding: 18px; border-right: 1px solid var(--line); min-width: 0; }
+.req div:last-child { border-right: 0; }
+.req dt { font: 500 11px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+.req dd { margin: 0; font-weight: 800; font-size: 18px; font-variant-numeric: tabular-nums; }
+.req dd small { display: block; font-weight: 500; font-size: 13px; color: var(--muted); }
+
+.faq { display: grid; gap: 10px; max-width: 820px; }
+.faq details { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 14px 18px; }
+.faq summary { cursor: pointer; font-weight: 800; }
+.faq p { margin: 10px 0 0; color: var(--muted); }
+
+.tg { background: linear-gradient(135deg, #1b6f99, #229ed9); color: #fff; border-radius: 18px; padding: 28px; display: flex; flex-wrap: wrap; gap: 20px; align-items: center; justify-content: space-between; }
+.tg h2 { margin: 0 0 6px; color: #fff; }
+.tg p { margin: 0; color: #e3f4ff; max-width: 34em; }
+.tg a { flex: none; background: #fff; color: #1b6f99; text-decoration: none; font-weight: 800; padding: 14px 20px; border-radius: 12px; }
+
+footer { border-top: 1px solid var(--line); padding-block: 28px 40px; color: var(--muted); font-size: 14px; }
+footer .wrap { display: flex; flex-wrap: wrap; gap: 10px 28px; justify-content: space-between; }
+footer b { color: var(--fg); }
+
+@media (max-width: 900px) {
+  .hero .wrap { grid-template-columns: 1fr; padding-block: 36px 48px; }
+  .phone { width: min(260px, 80%); transform: none; }
+  .feat { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .req { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .req div:nth-child(2) { border-right: 0; }
+  .req div:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+}
+@media (max-width: 600px) {
+  .feat, .steps { grid-template-columns: 1fr; }
+  .btn { width: 100%; justify-content: center; }
+  section { padding-block: 44px; }
+}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="{{LOGO}}" alt=""> TNT <b>Launcher</b></a>
+    <nav aria-label="Разделы">
+      <a href="#features">Возможности</a>
+      <a href="#install">Установка</a>
+      <a href="#faq">Вопросы</a>
+      <a class="tg-mini" href="https://t.me/tntlaunchermobile" target="_blank" rel="noopener">Telegram</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <h1>Minecraft Java Edition <span>на телефоне</span></h1>
+        <p class="lead">Лаунчер для Android: любая версия от Alpha до 1.21, Fabric, Forge, OptiFine и Sodium в один тап, моды и готовые сборки с Modrinth. Работает и без интернета.</p>
+        <div class="cta">
+          <a class="btn btn-dl" href="https://github.com/Zhenyok94720572/tnt-launcher-releases/releases/download/v1.1/TNTLauncher-1.1.apk">
+            <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M11 3h2v10.2l3.6-3.6 1.4 1.4-6 6-6-6 1.4-1.4 3.6 3.6V3zM5 19h14v2H5z"/></svg>
+            Скачать APK
+          </a>
+          <a class="btn btn-tg" href="https://t.me/tntlaunchermobile" target="_blank" rel="noopener">Канал в Telegram</a>
+        </div>
+        <div class="meta"><b>v1.1</b> · TNTLauncher-1.1.apk · 138 МБ · Android 5.0+ · <a href="https://github.com/Zhenyok94720572/tnt-launcher-releases/releases" target="_blank" rel="noopener">все версии</a></div>
+      </div>
+
+      <div class="phone" aria-label="Главный экран TNT Launcher">
+        <div class="screen">
+          <div class="s-bar"><img src="{{LOGO}}" alt=""> TNT <i>Steve ▾</i></div>
+          <div class="s-card s-news">
+            <h4>Minecraft 1.21 — Tricky Trials</h4>
+            <small>Официальные патч-ноуты Mojang · автоперевод</small>
+            <p>• Испытательные камеры с испытательными спаунерами и хранилищами<br>• Вихрь и болотник<br>• Булава и заряды ветра<br>• Автокрафтер<br>• Медные лампы, двери и решётки</p>
+          </div>
+          <div class="s-card">
+            <div class="s-row">
+              <div><div class="s-label">Сборки</div><div class="s-field dl">СКАЧАТЬ СБОРКУ</div></div>
+              <div><div class="s-label">Версия</div><div class="s-field">Fabric+Sodium 1.21 ▾</div></div>
+            </div>
+            <div class="s-switch">Изоляция версий <span></span></div>
+            <div class="s-btns"><div class="s-more">☰</div><div class="s-mods">МОДЫ</div><div class="s-play">ИГРАТЬ</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section id="features">
+    <div class="wrap">
+      <p class="kicker">Возможности</p>
+      <h2>Всё, что нужно для Java Edition на Android</h2>
+      <div class="feat">
+        <article><span class="tag">версии</span><h3>Любая версия</h3><p>Релизы, снапшоты, бета, альфа и первоапрельские версии. Одну версию можно поставить сколько угодно раз — у каждой копии свои миры и моды.</p></article>
+        <article><span class="tag">сборки</span><h3>Загрузчики в один тап</h3><p>Fabric, Quilt, Forge, OptiFine, LiteLoader и связки Fabric+Sodium, Forge+OptiFine лежат прямо в списке версий.</p></article>
+        <article><span class="tag">modrinth</span><h3>Моды и модпаки</h3><p>Каталог Modrinth с поиском и иконками: мод ставится вместе с зависимостями, готовая сборка — с выбором версии игры и загрузчика.</p></article>
+        <article><span class="tag">java</span><h3>Java ставится сама</h3><p>Лаунчер знает, какая Java нужна версии (8, 17, 21 или 25), скачивает её один раз и закрепляет за сборкой.</p></article>
+        <article><span class="tag">fps</span><h3>Настроено под телефон</h3><p>Дальность прорисовки, частицы, тени и FPS подбираются под мощность устройства, рендер — под версию игры.</p></article>
+        <article><span class="tag">офлайн</span><h3>Играйте без сети</h3><p>Установленные сборки запускаются без интернета. Вход — через Microsoft или офлайн-ник; в 1.16.4–1.16.5 сетевая игра не серая.</p></article>
+      </div>
+      <div class="builds" aria-label="Сборки в списке версий">
+        <span class="on">1.21</span><span>Fabric 1.21</span><span>Fabric+Sodium 1.21</span><span>Quilt 1.21</span><span>Forge 1.20.1</span><span>Forge+OptiFine 1.20.1</span><span>OptiFine 1.16.5</span><span>LiteLoader 1.7.10</span><span>b1.7.3</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="install" style="background: var(--bg-2); border-block: 1px solid var(--line);">
+    <div class="wrap">
+      <p class="kicker">Установка</p>
+      <h2>Четыре шага до первого мира</h2>
+      <ol class="steps">
+        <li><div><h3>Скачайте APK</h3><p>Нажмите «Скачать APK» вверху страницы — на телефоне файл <code>TNTLauncher-1.1.apk</code> попадёт в «Загрузки».</p></div></li>
+        <li><div><h3>Разрешите установку</h3><p>Откройте файл. Android спросит про «неизвестные источники» — разрешите установку для браузера или файлового менеджера.</p></div></li>
+        <li><div><h3>Войдите</h3><p>Нажмите на полосу аккаунта вверху лаунчера: аккаунт Microsoft или офлайн-ник.</p></div></li>
+        <li><div><h3>Выберите версию и играйте</h3><p>«Версия» → «Скачать новую версию», выберите версию или сборку и нажмите «Играть». Игра и Java скачаются сами.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="kicker">Требования</p>
+      <h2>На каком телефоне пойдёт</h2>
+      <dl class="req">
+        <div><dt>Android</dt><dd>5.0+<small>лучше 10 и новее</small></dd></div>
+        <div><dt>Память</dt><dd>3 ГБ ОЗУ<small>для 1.18+ лучше от 6 ГБ</small></dd></div>
+        <div><dt>Процессор</dt><dd>ARM64<small>ARMv7 и x86 тоже работают</small></dd></div>
+        <div><dt>Место</dt><dd>1–2 ГБ<small>игра, Java и ресурсы</small></dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section id="faq" style="padding-top: 0;">
+    <div class="wrap">
+      <p class="kicker">Вопросы</p>
+      <h2>Частые вопросы</h2>
+      <div class="faq">
+        <details><summary>Это бесплатно?</summary><p>Да, лаунчер бесплатный. Сама Minecraft: Java Edition по правилам Mojang требует покупки — вход через аккаунт Microsoft подтверждает её.</p></details>
+        <details><summary>Обновление удалит мои миры?</summary><p>Нет. Новую версию лаунчера ставьте поверх старой: установки, миры, моды и настройки сохраняются.</p></details>
+        <details><summary>Как поиграть с модами?</summary><p>Установите сборку Fabric, Quilt или Forge, выберите её и нажмите «МОДЫ» — откроется каталог Modrinth для этой версии. Готовые модпаки — по кнопке «Скачать сборку».</p></details>
+        <details><summary>Игра тормозит, что делать?</summary><p>Выберите сборку Fabric+Sodium, уменьшите дальность прорисовки и разрешение в настройках лаунчера. Профиль устройства и авто-выбор рендера — в меню «☰ Ещё → Оптимизация TNT».</p></details>
+        <details><summary>Где сообщить об ошибке?</summary><p>В официальном Telegram-канале <a href="https://t.me/tntlaunchermobile" target="_blank" rel="noopener">@tntlaunchermobile</a>. Приложите лог: «☰ Ещё → Поделиться логом последнего запуска».</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top: 0;">
+    <div class="wrap">
+      <div class="tg">
+        <div><h2>Новости и обновления</h2><p>Новые версии лаунчера, ответы на вопросы и помощь с ошибками — в официальном канале.</p></div>
+        <a href="https://t.me/tntlaunchermobile" target="_blank" rel="noopener">t.me/tntlaunchermobile</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div><b>TNT Launcher</b> · Zhenyok — разработчик · Molly — моральная поддержка</div>
+    <div>На основе <a href="https://github.com/AngelAuraMC/Amethyst-Android" target="_blank" rel="noopener">Amethyst</a> (LGPLv3). Minecraft — товарный знак Mojang; лаунчер не связан с Mojang и Microsoft.</div>
+  </div>
+</footer>
